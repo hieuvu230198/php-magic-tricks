@@ -3,24 +3,29 @@ PHP Magic Method
 
 * Magic method trong PHP là những phương thức rất đặc biệc, vì nhiệm vụ của nó là bắt một sự kiện (event) nào đó khi chúng ta thao tác tới đối tượng. Tất cả các phương thức Magic methods đều có tên bắt đầu bằng hai dấu gạch dưới (__).
 
-__construct() & __desctruct()
+## __construct() & __destruct()
 -------------
 
-* Repo này chứa 5 đoạn mã nhỏ với Magic Code PHP trong đó
-* Ở dưới cùng của mỗi đoạn mã là một định nghĩa về đầu ra dự kiến
-* Trong mỗi tệp bạn sẽ tìm thấy một `Insert Magic Code Here`, hãy viết code ở đó
-* Độ dài của comment đại diện cho độ dài giải pháp của bạn
-* Có thể có nhiều giải pháp cho mỗi đoạn
+- Hàm __construct() được gọi 1 cách tự động khi mà object được khởi tạo lần đầu tiên.
+- Hàm __destruct thì ngược lại.
+```php
+    class Person {
+        private $name;
+        private $age;
+        private $sex;
 
-Quy tắc
------
-
-* Không chấm dứt thực hiện các kịch bản bằng cách sử dụng `return`, `die()`, `exit()`, `__halt_compiler()` hoặc tương tự
-* Tất cả code sẽ được thực thi trong thời gian chạy
-
-Chơi như thế nào?
-------------
-
-* Cố gắng tìm một giải pháp cho một đoạn
-* Mở một PR với giải pháp của bạn
-* Tác giả sẽ tiết lộ giải pháp vào buổi tối
+        public function __construct($name="", $age=22, $sex="Male") {
+            $this->name = $name;
+            $this->age = $age;
+            $this->sex = $sex;
+        }
+        public function say() {
+            echo "Name：" . $this->name . ",Sex：" . $this->sex . ",Age：" . $this->age;
+        }
+        public function __destruct() {
+            echo "Destroying " . __CLASS__ . "\n";
+        }
+    }
+    $person1 = new Person();
+    echo $person1->say(); //print:Name：,Sex：Male,Age：22
+```
