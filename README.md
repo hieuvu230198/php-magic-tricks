@@ -1,9 +1,7 @@
 PHP Magic Tricks
 ================
 
-*Resposity là một phần của cuộc họp #sfugbln XMAS vào ngày 20 tháng 12 tại Berlin
-
-Credits to all anonymous php magicians on 3v4l.org
+* Resposity là một phần của cuộc họp #sfugbln XMAS vào ngày 20 tháng 12 tại Berlin
 
 Cái này là gì?
 -------------
